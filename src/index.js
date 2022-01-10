@@ -10,7 +10,9 @@ app.use(express.json({ limit: '500mb' }));
 app.use(cors(/*options*/));
 
 
-
+setInterval(function () {
+    DB.query('SELECT 1');
+    }, 5000);
 app.get('/',(req, res) => {
 
     DB.query('SELECT * FROM encuesta', (err, rows, fields) => {
